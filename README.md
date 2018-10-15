@@ -27,7 +27,8 @@ Enumerate solutions to a problem and identify algorithms and data structures aft
 Get a grasp on techniques to write pseudo code for an algorithm and ace in white boarding or interviewing situations.
 Discover the pitfalls in selecting data structures and algorithms by predicting how fast and efficient is an algorithm or a data structure.
 
-Packtpub Metadescription (145-160 Characters): Explore Golang’s Data Structures and Algorithms that will help you Design, Implement, and Analyze Code in Practical/Professional setting.
+## Packtpub Metadescription (145-160 Characters)
+Explore Golang’s Data Structures and Algorithms that will help you Design, Implement, and Analyze Code in Practical/Professional setting.
 
 ## Author Bio
 
