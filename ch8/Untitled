@@ -1,0 +1,43 @@
+//main package has examples shown
+// in Go Data Structures and algorithms book
+package main
+
+// importing fmt package
+import (
+	"fmt"
+
+)
+
+
+
+func quickSort(a []int, low int, high int) {
+    if(low < high) {
+        var p int
+        p = partition(a, low, high)
+        quickSort(a, low, p - 1)
+        quickSort(a, p + 1, high)
+    }
+}
+
+func partition(a []int, low int, high int) int {
+    var pivot int
+    pivot = a[high]
+    var i int
+    i = low
+    var j int
+    for j = low; j < high; j++ {
+        if(a[j] <= pivot) {
+            swap(&a[i], &a[j])
+            i += 1
+        }
+    }
+    swap(&a[i], &a[high])
+    return i
+}
+
+func swap(a, b *int) {
+    var temp int
+    temp = *a
+    *a = *b
+    *b = temp
+}

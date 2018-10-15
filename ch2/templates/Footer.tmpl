@@ -1,0 +1,4 @@
+{{ define "Footer" }}
+    </body>
+</html>
+{{ end }}
