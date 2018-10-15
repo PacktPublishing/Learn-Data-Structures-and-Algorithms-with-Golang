@@ -30,5 +30,8 @@ Discover the pitfalls in selecting data structures and algorithms by predicting 
 Packtpub Metadescription (145-160 Characters): Explore Golang’s Data Structures and Algorithms that will help you Design, Implement, and Analyze Code in Practical/Professional setting.
 
 ## Author Bio
+
+![alt text](https://avatars1.githubusercontent.com/u/2901756?s=96&v=4)
+
 Bhagvan Kommadi, Founder, Architect Corner has around 18 years’ experience in the industry ranging from large scale enterprise development to incubating software product startups. He has done Masters in Industrial Systems Engineering at Georgia Institute of Technology (1997) and Bachelors in Aerospace Engineering from Indian Institute of Technology, Madras (1993). He is the founder of Architect Corner - AI Startup. He is member of IFX forum and an Individual member of Oracle JCP. 
 He has developed Go language based blockchain solutions in retail, education, banking, and financial services sectors. These blockchain solutions were based on Chain Core (Go language based), Ethereum and Hyper ledger blockchain platforms. He has experience in building high transactional applications using Java, C, C++, C#, Python, Go, Ruby and JavaScript frameworks. He has reviewed books such as Beyond Software Architecture-Creating and sustaining winning solutions by Luke Hohmann and Algorithms of the intelligent Web by Dr. Haralambos (Babis) Marmanis.
