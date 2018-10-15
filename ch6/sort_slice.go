@@ -29,7 +29,7 @@ func (sortIntf SortByAge) Swap(i int, j int)      { sortIntf[i], sortIntf[j] = s
 func (sortIntf SortByAge) Less(i int, j int) bool { return sortIntf[i].Age < sortIntf[j].Age }
 
 func main() {
-	employees := []Employee{
+	var employees = []Employee{
 		{"Graham","231",235643,31},
 		{"John", "3434",245643,42},
 		{"Michael","8934",32432, 17},
