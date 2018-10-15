@@ -51,7 +51,7 @@ func (multiSorter *multiSorter) Swap(i int, j int) {
 
 // Less is part of sort.Interface.
 
-func (multiSorter *multiSorter) Less(i, j int) bool {
+func (multiSorter *multiSorter) Less(i int, j int) bool {
 
 	var p *Commit
 	var q *Commit
@@ -92,7 +92,7 @@ func main() {
 		{"sam", "Java", 650},
 		{"hayvard", "Smalltalk", 180},
 	}
-	
+
 	var user func(*Commit,*Commit) bool
 	user = func(c1 *Commit, c2 *Commit) bool {
 		return c1.username < c2.username

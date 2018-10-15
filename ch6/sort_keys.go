@@ -22,7 +22,7 @@ type Thing struct {
 }
 
 // By is the type of a "less" function that defines the ordering of its Thing arguments.
-type ByFactor func(Thing1, Thing2 *Thing) bool
+type ByFactor func(Thing1 *Thing, Thing2 *Thing) bool
 
 // Sort is a method on the function type, By, that sorts the argument slice according to the function.
 func (byFactor ByFactor) Sort(Things []Thing) {
@@ -37,7 +37,7 @@ func (byFactor ByFactor) Sort(Things []Thing) {
 // ThingSorter joins a By function and a slice of Things to be sorted.
 type ThingSorter struct {
 	Things []Thing
-	byFactor      func(Thing1, Thing2 *Thing) bool // Closure used in the Less method.
+	byFactor      func(Thing1 *Thing, Thing2 *Thing) bool // Closure used in the Less method.
 }
 
 // Len is part of sort.Interface.
@@ -46,12 +46,12 @@ func (ThingSorter *ThingSorter) Len() int {
 }
 
 // Swap is part of sort.Interface.
-func (ThingSorter *ThingSorter) Swap(i, j int) {
+func (ThingSorter *ThingSorter) Swap(i int, j int) {
 	ThingSorter.Things[i], ThingSorter.Things[j] = ThingSorter.Things[j], ThingSorter.Things[i]
 }
 
 // Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
-func (ThingSorter *ThingSorter) Less(i, j int) bool {
+func (ThingSorter *ThingSorter) Less(i int, j int) bool {
 	return ThingSorter.byFactor(&ThingSorter.Things[i], &ThingSorter.Things[j])
 }
 
