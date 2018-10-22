@@ -1,6 +1,9 @@
 # Hands-On-Data-Structures-and-Algorithms-with-Go
 Hands-On Data Structures and Algorithms with Go, published by Packt
 
+![alt text](https://github.com/bhagvank/arc/blob/master/IMG_5386.JPG)
+
+
 ## Subtitle: 
 Level up Your Core Programming Skills to develop faster and efficient code
 
