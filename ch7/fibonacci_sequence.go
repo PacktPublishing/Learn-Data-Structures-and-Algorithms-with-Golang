@@ -2,12 +2,12 @@
 // in Go Data Structures and algorithms book
 package main
 
-// importing fmt package
+// importing fmt and strconv package
 import (
 	"fmt"
   "strconv"
 )
-
+// Series method
 func Series(n int) int {
 	  var f []int
     f = make([]int, n+1, n+2)
@@ -22,14 +22,14 @@ func Series(n int) int {
     }
     return f[n]
 }
-
+// FibonacciNumber method
 func FibonacciNumber(n int) int {
     if n <= 1 {
         return n
     }
     return FibonacciNumber(n-1) + FibonacciNumber(n-2)
 }
-
+// main method
 func main() {
 	  var i int
     for i = 0; i <= 9; i++ {

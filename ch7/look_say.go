@@ -2,12 +2,12 @@
 // in Go Data Structures and algorithms book
 package main
 
-// importing fmt package
+// importing fmt and strconv package
 import (
 	"fmt"
   "strconv"
 )
-
+// look_say method
 func look_say(str string) (rstr string) {
     var cbyte byte
     cbyte = str[0]
@@ -27,7 +27,7 @@ func look_say(str string) (rstr string) {
     }
     return rstr + strconv.Itoa(inc) + string(cbyte)
 }
-
+// main method
 func main() {
 	  var str string
     str = "1"

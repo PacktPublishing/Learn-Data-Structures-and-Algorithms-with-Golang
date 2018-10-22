@@ -7,7 +7,7 @@ import (
 	"fmt"
   "bytes"
 )
-
+// ThueMorseSequence method
 func ThueMorseSequence( buffer * bytes.Buffer ) {
 
     var b int

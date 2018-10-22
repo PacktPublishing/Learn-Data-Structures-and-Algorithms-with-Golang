@@ -7,15 +7,17 @@ import (
 	"fmt"
 )
 
-
+// fraction class
 type fraction struct{
 	numerator int
 	denominator int }
 
+// string method of fraction class
 func (frac fraction) String() string {
     return fmt.Sprintf("%d/%d", frac.numerator, frac.denominator)
 }
 
+// g method
 func g(l fraction, r fraction, num int) {
     var frac fraction
     frac = fraction{l.numerator + r.numerator, l.denominator + r.denominator}
@@ -25,7 +27,7 @@ func g(l fraction, r fraction, num int) {
         g(frac, r, num)
     }
 }
-
+// main method
 func main() {
     var num int
     var l fraction
