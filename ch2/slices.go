@@ -10,28 +10,27 @@ import (
 //twiceValue method given slice of int type
 func twiceValue(slice []int) {
 
-      var i int
-      var value int
+	var i int
+	var value int
 
-      for i, value = range  slice {
+	for i, value = range slice {
 
-             slice[i] = 2*value
+		slice[i] = 2 * value
 
-      }
+	}
 
 }
 
 // main method
 func main() {
 
+	var slice = []int{1, 3, 5, 6}
+	twiceValue(slice)
 
-   var slice = []int{1,3,5,6}
-    twiceValue(slice)
+	var i int
 
-    var i int
+	for i = 0; i < len(slice); i++ {
 
-    for i=0; i< len(slice); i++ {
-
-        fmt.Println("new slice value", slice[i])
-    }
+		fmt.Println("new slice value", slice[i])
+	}
 }

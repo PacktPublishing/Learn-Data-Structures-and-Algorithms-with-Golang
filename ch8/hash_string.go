@@ -8,37 +8,36 @@ import (
 	"strconv"
 )
 
-
+// hash method
 func hash(str string) int {
 
-    var constant int
+	var constant int
 
-    var strint int
+	var strint int
 
-		 constant = 42
-		 var err error
-		strint,err = strconv.Atoi(str)
+	constant = 42
+	var err error
+	strint, err = strconv.Atoi(str)
 
-		constant = constant * strint
+	constant = constant * strint
 
-    fmt.Println(strint)
+	fmt.Println(strint)
 
-		fmt.Println(err)
-    return constant
+	fmt.Println(err)
+	return constant
 
 }
 
 // main method
 func main() {
 
-  var str string
+	var str string
 
-  str = "checkforhash"
+	str = "checkforhash"
 
-  var hashCode int
+	var hashCode int
 
-
-  hashCode = hash(str)
+	hashCode = hash(str)
 
 	fmt.Println(hashCode)
 

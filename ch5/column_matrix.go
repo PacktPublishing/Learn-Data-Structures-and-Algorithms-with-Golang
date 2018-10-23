@@ -4,14 +4,13 @@ package main
 
 // importing fmt package
 import (
-"fmt"
+	"fmt"
 )
 
 // main method
 func main() {
 
-var matrix = [4][1] int{{1},{2},{3},{4}}
+	var matrix = [4][1]int{{1}, {2}, {3}, {4}}
 
-
-fmt.Println(matrix)
+	fmt.Println(matrix)
 }

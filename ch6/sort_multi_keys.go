@@ -11,17 +11,17 @@ import (
 
 // A Commit is a record of code checkin
 type Commit struct {
-	username     string
-	lang string
-	numlines    int
+	username string
+	lang     string
+	numlines int
 }
 
 type lessFunc func(p1 *Commit, p2 *Commit) bool
 
 // multiSorter implements the Sort interface, sorting the Commits within.
 type multiSorter struct {
-	Commits []Commit
-	lessFunction    []lessFunc
+	Commits      []Commit
+	lessFunction []lessFunc
 }
 
 // Sort sorts the argument slice according to the less functions passed to OrderedBy.
@@ -46,7 +46,7 @@ func (multiSorter *multiSorter) Len() int {
 // Swap is part of sort.Interface.
 func (multiSorter *multiSorter) Swap(i int, j int) {
 	multiSorter.Commits[i] = multiSorter.Commits[j]
-	multiSorter.Commits[j] =  multiSorter.Commits[i]
+	multiSorter.Commits[j] = multiSorter.Commits[i]
 }
 
 // Less is part of sort.Interface.
@@ -76,8 +76,6 @@ func (multiSorter *multiSorter) Less(i int, j int) bool {
 	return multiSorter.lessFunction[k](p, q)
 }
 
-
-
 //main method
 func main() {
 
@@ -93,26 +91,25 @@ func main() {
 		{"hayvard", "Smalltalk", 180},
 	}
 
-	var user func(*Commit,*Commit) bool
+	var user func(*Commit, *Commit) bool
 	user = func(c1 *Commit, c2 *Commit) bool {
 		return c1.username < c2.username
 	}
 
-	var language func(*Commit,*Commit) bool
+	var language func(*Commit, *Commit) bool
 	language = func(c1 *Commit, c2 *Commit) bool {
 		return c1.lang < c2.lang
 	}
 
-	var increasingLines func(*Commit,*Commit) bool
+	var increasingLines func(*Commit, *Commit) bool
 	increasingLines = func(c1 *Commit, c2 *Commit) bool {
 		return c1.numlines < c2.numlines
 	}
 
-	var decreasingLines func(*Commit,*Commit) bool
+	var decreasingLines func(*Commit, *Commit) bool
 	decreasingLines = func(c1 *Commit, c2 *Commit) bool {
 		return c1.numlines > c2.numlines // Note: > orders downwards.
 	}
-
 
 	OrderedBy(user).Sort(Commits)
 	fmt.Println("By username:", Commits)

@@ -9,21 +9,20 @@ import (
 
 // Class Type
 type Class struct {
-
-    Name string
-
+	Name string
 }
+
 // Knowledge Graph type
 type KnowledgeGraph struct {
 	GraphNodes map[Class]struct{}
-	Links map[Class]map[Class]struct{}
+	Links      map[Class]map[Class]struct{}
 }
 
 // NewKnowledgeGraph method
 func NewKnowledgeGraph() *KnowledgeGraph {
 	return &KnowledgeGraph{
 		GraphNodes: make(map[Class]struct{}),
-		Links: make(map[Class]map[Class]struct{}),
+		Links:      make(map[Class]map[Class]struct{}),
 	}
 }
 
@@ -67,13 +66,13 @@ func (knowledgeGraph *KnowledgeGraph) PrintLinks() {
 		fmt.Printf("Link: %s -> %s\n", car.Name, node.Name)
 	}
 
-  var m map[Class]struct{}
+	var m map[Class]struct{}
 	fmt.Println("Printing all links.")
 	for car, m = range knowledgeGraph.Links {
 		var vertex Class
 		for vertex = range m {
 			// Edge exists from u to v.
-			fmt.Printf("Link: %s -> %s\n",car.Name, vertex.Name)
+			fmt.Printf("Link: %s -> %s\n", car.Name, vertex.Name)
 		}
 	}
 }
@@ -83,39 +82,36 @@ func main() {
 
 	var knowledgeGraph *KnowledgeGraph
 
-	 knowledgeGraph = NewKnowledgeGraph()
+	knowledgeGraph = NewKnowledgeGraph()
 
-	 var 	car = Class{"Car"}
-	 var 	tyre = Class{"Tyre"}
-	 var  door  = Class{"Door"}
-	 var 	hood = Class{"Hood"}
+	var car = Class{"Car"}
+	var tyre = Class{"Tyre"}
+	var door = Class{"Door"}
+	var hood = Class{"Hood"}
 
+	knowledgeGraph.AddClass(car)
+	knowledgeGraph.AddClass(tyre)
+	knowledgeGraph.AddClass(door)
+	knowledgeGraph.AddClass(hood)
 
-	 knowledgeGraph.AddClass(car)
-	 knowledgeGraph.AddClass(tyre)
-	 knowledgeGraph.AddClass(door)
-	 knowledgeGraph.AddClass(hood)
+	knowledgeGraph.AddLink(car, tyre)
+	knowledgeGraph.AddLink(car, door)
+	knowledgeGraph.AddLink(car, hood)
 
-	 knowledgeGraph.AddLink(car, tyre)
-	 knowledgeGraph.AddLink(car,door)
-	 knowledgeGraph.AddLink(car,hood)
+	var tube = Class{"Tube"}
+	var axle = Class{"Axle"}
+	var handle = Class{"Handle"}
+	var windowGlass = Class{"Window Glass"}
 
+	knowledgeGraph.AddClass(tube)
+	knowledgeGraph.AddClass(axle)
+	knowledgeGraph.AddClass(handle)
+	knowledgeGraph.AddClass(windowGlass)
 
-	 var 	tube = Class{"Tube"}
-	 var 	axle = Class{"Axle"}
-	 var  handle  = Class{"Handle"}
-	 var 	windowGlass = Class{"Window Glass"}
+	knowledgeGraph.AddLink(tyre, tube)
+	knowledgeGraph.AddLink(tyre, axle)
+	knowledgeGraph.AddLink(door, handle)
+	knowledgeGraph.AddLink(door, windowGlass)
 
-	 knowledgeGraph.AddClass(tube)
-	 knowledgeGraph.AddClass(axle)
-	 knowledgeGraph.AddClass(handle)
-	 knowledgeGraph.AddClass(windowGlass)
-
-	 knowledgeGraph.AddLink(tyre, tube)
-	 knowledgeGraph.AddLink(tyre,axle)
-	 knowledgeGraph.AddLink(door,handle)
-	 knowledgeGraph.AddLink(door,windowGlass)
-
-
-	 knowledgeGraph.PrintLinks()
+	knowledgeGraph.PrintLinks()
 }

@@ -7,32 +7,30 @@ import (
 	"fmt"
 )
 
-
-
 // Social Graph
 type SocialGraph struct {
-	Size int
-	Links    [][]Link
+	Size  int
+	Links [][]Link
 }
 
 // Link class
 type Link struct {
-	Vertex1   int
-	Vertex2     int
+	Vertex1    int
+	Vertex2    int
 	LinkWeight int
 }
-
 
 // NewSocialGraph method
 func NewSocialGraph(num int) *SocialGraph {
 	return &SocialGraph{
-		Size: num,
-		Links:    make([][]Link, num),
+		Size:  num,
+		Links: make([][]Link, num),
 	}
 }
+
 // AddLink method
 func (socialGraph *SocialGraph) AddLink(vertex1 int, vertex2 int, weight int) {
-	socialGraph.Links[vertex1] = append(socialGraph.Links[vertex1], Link{Vertex1: vertex1,Vertex2: vertex2, LinkWeight: weight})
+	socialGraph.Links[vertex1] = append(socialGraph.Links[vertex1], Link{Vertex1: vertex1, Vertex2: vertex2, LinkWeight: weight})
 }
 
 // Print Links Example
@@ -59,17 +57,15 @@ func (socialGraph *SocialGraph) PrintLinks() {
 // main method
 func main() {
 
- var socialGraph *SocialGraph
+	var socialGraph *SocialGraph
 
-  socialGraph = NewSocialGraph(4)
+	socialGraph = NewSocialGraph(4)
 
-	socialGraph.AddLink(0,1, 1)
-	socialGraph.AddLink(0,2,1)
-	socialGraph.AddLink(1,3,1)
-	socialGraph.AddLink(2,4,1)
+	socialGraph.AddLink(0, 1, 1)
+	socialGraph.AddLink(0, 2, 1)
+	socialGraph.AddLink(1, 3, 1)
+	socialGraph.AddLink(2, 4, 1)
 
 	socialGraph.PrintLinks()
-
-
 
 }

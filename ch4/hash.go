@@ -8,9 +8,10 @@ import (
 	"crypto/sha256"
 	"encoding"
 	"fmt"
-	"log"
 	"hash"
+	"log"
 )
+
 //main method
 func main() {
 	const (
@@ -18,11 +19,11 @@ func main() {
 		example2 = "second example"
 	)
 
-  var firstHash hash.Hash
+	var firstHash hash.Hash
 	firstHash = sha256.New()
 	firstHash.Write([]byte(example1))
 
-  var marshaler encoding.BinaryMarshaler
+	var marshaler encoding.BinaryMarshaler
 	var ok bool
 	marshaler, ok = firstHash.(encoding.BinaryMarshaler)
 	if !ok {
@@ -35,10 +36,10 @@ func main() {
 		log.Fatal("unable to marshal first Hash:", err)
 	}
 
-  var secondHash hash.Hash
+	var secondHash hash.Hash
 	secondHash = sha256.New()
 
-  var unmarshaler encoding.BinaryUnmarshaler
+	var unmarshaler encoding.BinaryUnmarshaler
 
 	unmarshaler, ok = secondHash.(encoding.BinaryUnmarshaler)
 	if !ok {

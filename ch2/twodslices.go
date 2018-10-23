@@ -10,19 +10,19 @@ import (
 // main method
 func main() {
 
-   var rows int
-   var cols int
+	var rows int
+	var cols int
 
-   rows = 7
-   cols = 9
-   var twodslices = make([][]int, rows)
+	rows = 7
+	cols = 9
+	var twodslices = make([][]int, rows)
 
-   var i int
+	var i int
 
-   for i = range twodslices {
+	for i = range twodslices {
 
-      twodslices[i] = make([]int,cols)
-   }
+		twodslices[i] = make([]int, cols)
+	}
 
-    fmt.Println(twodslices)
+	fmt.Println(twodslices)
 }

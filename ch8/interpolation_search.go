@@ -5,13 +5,10 @@ package main
 // importing fmt and os package
 import (
 	"fmt"
-
 )
 
-
-
 //interpolation search method
-func InterpolationSearch(elements []int, element int) (bool,int){
+func InterpolationSearch(elements []int, element int) (bool, int) {
 	var mid int
 	var low int
 	low = 0
@@ -26,27 +23,27 @@ func InterpolationSearch(elements []int, element int) (bool,int){
 		} else if elements[mid] > element {
 			high = mid - 1
 		} else {
-			return true,mid;
+			return true, mid
 		}
 	}
 
 	if elements[low] == element {
-		return true,low;
+		return true, low
 	} else if elements[high] == element {
-		return true,high;
+		return true, high
 	} else {
-		return false,-1;
+		return false, -1
 	}
 
-	return false,-1;
+	return false, -1
 }
 
 // main method
 func main() {
 
-  var elements []int
+	var elements []int
 
-	elements = []int{2,3,5,7,9}
+	elements = []int{2, 3, 5, 7, 9}
 
 	var element int
 
@@ -55,8 +52,8 @@ func main() {
 	var found bool
 
 	var index int
-	found,index = InterpolationSearch(elements, element)
+	found, index = InterpolationSearch(elements, element)
 
-	fmt.Println(found,"found at",index)
+	fmt.Println(found, "found at", index)
 
 }

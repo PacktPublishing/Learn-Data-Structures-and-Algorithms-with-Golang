@@ -4,32 +4,31 @@ package main
 
 // importing fmt package
 import (
-    "fmt"
-    "math/rand"
+	"fmt"
+	"math/rand"
 )
 
 //main method
 func main() {
 
-var threedarray [2][2][2]int
+	var threedarray [2][2][2]int
 
-var i int
+	var i int
 
-var j int
+	var j int
 
-var k int
+	var k int
 
+	for i = 0; i < 2; i++ {
 
-for i=0; i < 2; i++ {
+		for j = 0; j < 2; j++ {
 
-   for j=0; j < 2; j++ {
+			for k = 0; k < 2; k++ {
 
-     for k=0; k < 2; k++ {
+				threedarray[i][j][k] = rand.Intn(3)
+			}
+		}
+	}
 
-         threedarray[i][j][k] = rand.Intn(3)
-     }
-   }
-}
-
- fmt.Println(threedarray)
+	fmt.Println(threedarray)
 }

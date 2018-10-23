@@ -7,19 +7,17 @@ import (
 	"fmt"
 )
 
-
-
 //List of List
 type LOL struct {
-	Row int
+	Row    int
 	Column int
-	Value      float64
+	Value  float64
 }
 
 //Sparse Matrix
 type SparseMatrix struct {
 	cells []LOL
-	shape    [2]int
+	shape [2]int
 }
 
 // Shape method
@@ -44,9 +42,9 @@ func LessThan(lol LOL, i int, j int) bool {
 }
 
 // Equal method
-func Equal(lol LOL,i int, j int) bool {
+func Equal(lol LOL, i int, j int) bool {
 
-  if lol.Row == i && lol.Column == j {
+	if lol.Row == i && lol.Column == j {
 
 		return true
 	}
@@ -59,10 +57,10 @@ func Equal(lol LOL,i int, j int) bool {
 func (sparseMatrix *SparseMatrix) GetValue(i int, j int) float64 {
 	var lol LOL
 	for _, lol = range sparseMatrix.cells {
-		if LessThan(lol,i, j) {
+		if LessThan(lol, i, j) {
 			continue
 		}
-		if Equal(lol,i, j) {
+		if Equal(lol, i, j) {
 			return lol.Value
 		}
 		return 0.0
@@ -76,10 +74,10 @@ func (sparseMatrix *SparseMatrix) SetValue(i int, j int, value float64) {
 	var lol LOL
 	var index int
 	for index, lol = range sparseMatrix.cells {
-		if LessThan(lol,i, j) {
+		if LessThan(lol, i, j) {
 			continue
 		}
-		if Equal(lol,i, j) {
+		if Equal(lol, i, j) {
 			sparseMatrix.cells[index].Value = value
 			return
 		}
@@ -90,36 +88,36 @@ func (sparseMatrix *SparseMatrix) SetValue(i int, j int, value float64) {
 			sparseMatrix.cells[k+1] = sparseMatrix.cells[k]
 		}
 		sparseMatrix.cells[index] = LOL{
-			Row: i,
+			Row:    i,
 			Column: j,
-			Value: value,
+			Value:  value,
 		}
 		return
 	}
 	sparseMatrix.cells = append(sparseMatrix.cells, LOL{
-		Row: i,
+		Row:    i,
 		Column: j,
-		Value: value,
+		Value:  value,
 	})
 }
 
 func NewSparseMatrix(m int, n int) *SparseMatrix {
 	return &SparseMatrix{
 		cells: []LOL{},
-		shape:    [2]int{m, n},
+		shape: [2]int{m, n},
 	}
 }
 
 // main method
 func main() {
 
-  var sparseMatrix *SparseMatrix
+	var sparseMatrix *SparseMatrix
 
-	sparseMatrix = NewSparseMatrix(3,3)
+	sparseMatrix = NewSparseMatrix(3, 3)
 
-	sparseMatrix.SetValue(1,1,2.0)
-	sparseMatrix.SetValue(1,3,3.0)
+	sparseMatrix.SetValue(1, 1, 2.0)
+	sparseMatrix.SetValue(1, 3, 3.0)
 
 	fmt.Println(sparseMatrix)
-  fmt.Println(sparseMatrix.NumNonZero())
+	fmt.Println(sparseMatrix.NumNonZero())
 }

@@ -9,10 +9,10 @@ import (
 
 //Circular Queue
 type CircularQueue struct {
-	size int
+	size  int
 	nodes []interface{}
-	head    int
-	last      int
+	head  int
+	last  int
 }
 
 // NewCircularQueue method
@@ -54,16 +54,16 @@ func (circularQueue *CircularQueue) MoveOneStep() (element interface{}) {
 
 // main method
 func main() {
-   var circularQueue *CircularQueue
+	var circularQueue *CircularQueue
 
-	 circularQueue = NewQueue(5)
+	circularQueue = NewQueue(5)
 
-	 circularQueue.Add(1)
-	 circularQueue.Add(2)
-	 circularQueue.Add(3)
-	 circularQueue.Add(4)
-	 circularQueue.Add(5)
+	circularQueue.Add(1)
+	circularQueue.Add(2)
+	circularQueue.Add(3)
+	circularQueue.Add(4)
+	circularQueue.Add(5)
 
-	 fmt.Println(circularQueue.nodes)
+	fmt.Println(circularQueue.nodes)
 
 }

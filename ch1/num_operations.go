@@ -5,8 +5,8 @@ package main
 // importing fmt package
 import (
 	"fmt"
-
 )
+
 //add method given a and b integers
 func add(a int, b int) int {
 	return a + b
@@ -22,4 +22,4 @@ func main() {
 
 	fmt.Println(add(42, 13))
 
-  }
+}

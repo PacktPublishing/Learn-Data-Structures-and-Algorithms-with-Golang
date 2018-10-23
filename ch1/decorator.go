@@ -26,7 +26,7 @@ type ProcessDecorator struct {
 }
 
 //ProcessDecorator class method process
-func (decorator *ProcessDecorator) process()  {
+func (decorator *ProcessDecorator) process() {
 	if decorator.processInstance == nil {
 		fmt.Println("ProcessDecorator  process")
 	} else {
@@ -36,20 +36,17 @@ func (decorator *ProcessDecorator) process()  {
 	}
 }
 
-
 //main method
 func main() {
 
-    var process  = &ProcessClass{}
+	var process = &ProcessClass{}
 
+	var decorator = &ProcessDecorator{}
 
+	decorator.process()
 
-    var decorator = &ProcessDecorator{}
+	decorator.processInstance = process
 
-    decorator.process()
-
-    decorator.processInstance = process
-
-    decorator.process()
+	decorator.process()
 
 }

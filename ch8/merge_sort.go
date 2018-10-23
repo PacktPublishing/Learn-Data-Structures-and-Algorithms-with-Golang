@@ -5,13 +5,13 @@ package main
 // importing fmt and bytes package
 import (
 	"fmt"
-  "math/rand"
-  "time"
+	"math/rand"
+	"time"
 )
 
 // create array
 func createArray(num int) []int {
-  var array []int
+	var array []int
 	array = make([]int, num, num)
 	rand.Seed(time.Now().UnixNano())
 	var i int
@@ -35,14 +35,14 @@ func MergeSorter(array []int) []int {
 // Join Arrays method
 func JoinArrays(leftArr []int, rightArr []int) []int {
 
-  var num int
+	var num int
 	var i int
 	var j int
 	num, i, j = len(leftArr)+len(rightArr), 0, 0
 	var array []int
-	array = make([]int,num, num)
+	array = make([]int, num, num)
 
-  var k int
+	var k int
 	for k = 0; k < num; k++ {
 		if i > len(leftArr)-1 && j <= len(rightArr)-1 {
 			array[k] = rightArr[j]
@@ -61,12 +61,10 @@ func JoinArrays(leftArr []int, rightArr []int) []int {
 	return array
 }
 
-
-
 // main method
 func main() {
 
-  var elements []int
+	var elements []int
 	elements = createArray(40)
 	fmt.Println("\n Before Sorting \n\n", elements)
 	fmt.Println("\n-After Sorting\n\n", MergeSorter(elements), "\n")

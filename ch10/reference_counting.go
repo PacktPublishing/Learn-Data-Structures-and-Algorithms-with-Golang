@@ -4,29 +4,27 @@ package main
 
 // importing fmt package
 import (
-  "sync/atomic"
-	"sync"
 	"fmt"
+	"sync"
+	"sync/atomic"
 )
-
-
-
 
 //Reference Counter
 type ReferenceCounter struct {
-	num       *uint32
-	pool *sync.Pool
-	removed     *uint32
+	num     *uint32
+	pool    *sync.Pool
+	removed *uint32
 }
 
 //new Reference Counter method
 func newReferenceCounter() ReferenceCounter {
 	return ReferenceCounter{
-		num:       new(uint32),
-		pool: &sync.Pool{},
-		removed:     new(uint32),
+		num:     new(uint32),
+		pool:    &sync.Pool{},
+		removed: new(uint32),
 	}
 }
+
 // Add method
 func (referenceCounter ReferenceCounter) Add() {
 	atomic.AddUint32(referenceCounter.num, 1)
@@ -40,15 +38,12 @@ func (referenceCounter ReferenceCounter) Subtract() {
 	}
 }
 
-
 // main method
 func main() {
 
-  var referenceCounter ReferenceCounter
+	var referenceCounter ReferenceCounter
 
-
-	referenceCounter =  newReferenceCounter()
-
+	referenceCounter = newReferenceCounter()
 
 	referenceCounter.Add()
 	fmt.Println(*referenceCounter.num)

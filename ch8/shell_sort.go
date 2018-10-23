@@ -10,10 +10,9 @@ import (
 // shell sorter method
 func ShellSorter(elements []int) {
 	var (
-		n = len(elements)
+		n         = len(elements)
 		intervals = []int{1}
-		k = 1
-
+		k         = 1
 	)
 
 	for {
@@ -25,7 +24,7 @@ func ShellSorter(elements []int) {
 		intervals = append([]int{interval}, intervals...)
 		k++
 	}
-  var interval int
+	var interval int
 	for _, interval = range intervals {
 		var i int
 		for i = interval; i < n; i += interval {
@@ -40,6 +39,7 @@ func ShellSorter(elements []int) {
 		}
 	}
 }
+
 //power function
 func power(exponent int, index int) int {
 	var power int
@@ -53,6 +53,7 @@ func power(exponent int, index int) int {
 	}
 	return power
 }
+
 // main method
 func main() {
 	var elements []int

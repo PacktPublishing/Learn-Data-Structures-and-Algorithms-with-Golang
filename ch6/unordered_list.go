@@ -6,50 +6,54 @@ package main
 import (
 	"fmt"
 )
+
 //Node class
 type Node struct {
-    property int
-    nextNode *Node
+	property int
+	nextNode *Node
 }
+
 // UnOrderedList class
 type UnOrderedList struct {
-    headNode *Node
+	headNode *Node
 }
+
 //AddToHead method of UnOrderedList class
 func (UnOrderedList *UnOrderedList) AddToHead(property int) {
-	  var node = &Node{}
-		node.property = property
-		node.nextNode = nil
+	var node = &Node{}
+	node.property = property
+	node.nextNode = nil
 
-    if UnOrderedList.headNode != nil {
-			//fmt.Println(node.property)
+	if UnOrderedList.headNode != nil {
+		//fmt.Println(node.property)
 		node.nextNode = UnOrderedList.headNode
-  	}
+	}
 
-	 UnOrderedList.headNode = node
+	UnOrderedList.headNode = node
 
 }
+
 //IterateList method iterates over UnOrderedList
 func (UnOrderedList *UnOrderedList) IterateList() {
 
-  var node *Node
+	var node *Node
 	for node = UnOrderedList.headNode; node != nil; node = node.nextNode {
 		fmt.Println(node.property)
 
 	}
 }
+
 // main method
 func main() {
 
-   var unOrderedList UnOrderedList
+	var unOrderedList UnOrderedList
 
-	 unOrderedList = UnOrderedList{}
+	unOrderedList = UnOrderedList{}
 
-	 unOrderedList.AddToHead(1)
-	 unOrderedList.AddToHead(3)
-   unOrderedList.AddToHead(5)
-	 unOrderedList.AddToHead(7)
-	 unOrderedList.IterateList()
-
+	unOrderedList.AddToHead(1)
+	unOrderedList.AddToHead(3)
+	unOrderedList.AddToHead(5)
+	unOrderedList.AddToHead(7)
+	unOrderedList.IterateList()
 
 }
