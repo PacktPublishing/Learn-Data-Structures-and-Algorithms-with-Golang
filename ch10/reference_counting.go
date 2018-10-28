@@ -2,7 +2,7 @@
 // in Go Data Structures and algorithms book
 package main
 
-// importing fmt package
+// importing fmt, sync and atomic package
 import (
 	"fmt"
 	"sync"
