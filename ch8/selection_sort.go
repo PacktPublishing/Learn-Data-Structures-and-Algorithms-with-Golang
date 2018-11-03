@@ -25,7 +25,7 @@ func SelectionSorter(elements []int) {
 }
 
 // swap method
-func swap(elements []int, i, j int) {
+func swap(elements []int, i int, j int) {
 	var temp int
 	temp = elements[j]
 	elements[j] = elements[i]
