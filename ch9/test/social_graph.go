@@ -55,7 +55,7 @@ func (socialGraph *SocialGraph) PrintLinks() {
 }
 
 // main method
-/*
+
 func main() {
 
 	var socialGraph *SocialGraph
@@ -70,4 +70,3 @@ func main() {
 	socialGraph.PrintLinks()
 
 }
-*/

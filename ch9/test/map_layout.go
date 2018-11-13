@@ -80,8 +80,7 @@ func (mapLayout *MapLayout) PrintLinks() {
 		}
 	}
 }
-/*
-// main method
+
 func main() {
 
 	var mapLayout *MapLayout
@@ -115,4 +114,3 @@ func main() {
 
 	 mapLayout.PrintLinks()
 }
-*/

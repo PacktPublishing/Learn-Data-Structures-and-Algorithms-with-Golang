@@ -101,6 +101,7 @@ func (sparseMatrix *SparseMatrix) SetValue(i int, j int, value float64) {
 	})
 }
 
+// New SparseMatrix method
 func NewSparseMatrix(m int, n int) *SparseMatrix {
 	return &SparseMatrix{
 		cells: []LOL{},

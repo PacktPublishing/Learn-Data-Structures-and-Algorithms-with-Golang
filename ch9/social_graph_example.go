@@ -9,18 +9,17 @@ import (
 
 // Name type
 type Name string
-
-//social graph class
+// Social Graph class
 type SocialGraph struct {
 	GraphNodes map[Name]struct{}
-	Links      map[Name]map[Name]struct{}
+	Links map[Name]map[Name]struct{}
 }
 
 // NewSocialGraph method
 func NewSocialGraph() *SocialGraph {
 	return &SocialGraph{
 		GraphNodes: make(map[Name]struct{}),
-		Links:      make(map[Name]map[Name]struct{}),
+		Links: make(map[Name]map[Name]struct{}),
 	}
 }
 
@@ -64,13 +63,13 @@ func (socialGraph *SocialGraph) PrintLinks() {
 		fmt.Printf("Link: %d -> %d\n", root, node)
 	}
 
-	var m map[Name]struct{}
+  var m map[Name]struct{}
 	fmt.Println("Printing all links.")
 	for root, m = range socialGraph.Links {
 		var vertex Name
 		for vertex = range m {
 			// Edge exists from u to v.
-			fmt.Printf("Link: %d -> %d\n", root, vertex)
+			fmt.Printf("Link: %d -> %d\n",root, vertex)
 		}
 	}
 }
@@ -80,29 +79,30 @@ func main() {
 
 	var socialGraph *SocialGraph
 
-	socialGraph = NewSocialGraph()
+	 socialGraph = NewSocialGraph()
 
-	var root Name = Name("Root")
-	var john Name = Name("John Smith")
-	var per Name = Name("Per Jambeck")
-	var cynthia Name = Name("Cynthia Gibas")
+	 var root Name = Name("Root")
+	 var john Name = Name("John Smith")
+   var per Name = Name("Per Jambeck")
+	 var cynthia Name = Name("Cynthia Gibas")
 
-	socialGraph.AddEntity(root)
-	socialGraph.AddEntity(john)
-	socialGraph.AddEntity(per)
-	socialGraph.AddEntity(cynthia)
 
-	socialGraph.AddLink(root, john)
-	socialGraph.AddLink(root, per)
-	socialGraph.AddLink(root, cynthia)
+	 socialGraph.AddEntity(root)
+	 socialGraph.AddEntity(john)
+	 socialGraph.AddEntity(per)
+	 socialGraph.AddEntity(cynthia)
 
-	var mayo Name = Name("Mayo Smith")
-	var lorrie Name = Name("Lorrie Jambeck")
-	var ellie Name = Name("Ellie Vlocksen")
+	 socialGraph.AddLink(root, john)
+	 socialGraph.AddLink(root,per)
+	 socialGraph.AddLink(root,cynthia)
 
-	socialGraph.AddLink(john, mayo)
-	socialGraph.AddLink(john, lorrie)
-	socialGraph.AddLink(per, ellie)
+   var mayo Name = Name("Mayo Smith")
+	 var lorrie Name = Name("Lorrie Jambeck")
+	 var ellie Name = Name("Ellie Vlocksen")
 
-	socialGraph.PrintLinks()
+	 socialGraph.AddLink(john, mayo)
+	 socialGraph.AddLink(john,lorrie)
+	 socialGraph.AddLink(per,ellie)
+
+	 socialGraph.PrintLinks()
 }
