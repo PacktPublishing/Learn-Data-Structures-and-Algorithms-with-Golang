@@ -1,0 +1,10 @@
+place
+cross
+words
+legal
+gates
+wards
+grams
+deers
+ultra
+rotor
