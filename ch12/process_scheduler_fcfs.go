@@ -43,13 +43,11 @@ func SortFCFS(processes [3]OSProcess) []OSProcessStep {
 
 	var processSteps = []OSProcessStep{}
 
-	//fmt.Println(processSteps)
 	var sProcesses []OSProcess
 	sProcesses = getSortedProcesses(processes, steps)
-	//fmt.Println(sProcesses)
+
 	var proc OSProcess
 	for _, proc = range sProcesses {
-		//fmt.Println(proc)
 		if proc.ProcessID != 0 {
 			processSteps = append(processSteps, OSProcessStep{Process: proc, IsNil: false})
 		}
@@ -59,7 +57,7 @@ func SortFCFS(processes [3]OSProcess) []OSProcessStep {
 	return processSteps
 }
 
-// getSortedProcesses
+// getSortedProcesses method
 func getSortedProcesses(processes [3]OSProcess, timePeriod int) []OSProcess {
 	var cProcesses []OSProcess
 	cProcesses = []OSProcess{}
