@@ -155,7 +155,7 @@ func CreateNode(idstr string) *Node {
 	}
 }
 
-// Get Identifier method
+// GetIdentifier method
 func (node *Node) GetIdentifier() Identifier {
 	return IdentifierStr(node.identifier)
 }

@@ -97,7 +97,7 @@ func (graph *DirGraph) setFinishingOrder() []*GraphNode {
 	return nodeArray
 }
 
-//Assign Finishing Label
+//Assign Finishing Label method
 func AssignFinishingLabel(node *GraphNode, graph *DirGraph, nodeArray *[]*GraphNode) {
 	node.visited = true
 	var neighborLabel int
@@ -109,7 +109,7 @@ func AssignFinishingLabel(node *GraphNode, graph *DirGraph, nodeArray *[]*GraphN
 	(*nodeArray) = append(*nodeArray, node)
 }
 
-//Mark Strong Connections
+//Mark Strong Connections method
 func MarkStrongConnections(node *GraphNode, graph *DirGraph, id int) {
 	node.visited = true
 	node.ID = id
@@ -121,7 +121,7 @@ func MarkStrongConnections(node *GraphNode, graph *DirGraph, id int) {
 	}
 }
 
-//create Strong Connections
+//create Strong Connections method
 func (graph *DirGraph) createStrongConnections() {
 	var l int
 	l = 0
@@ -141,7 +141,7 @@ func (graph *DirGraph) createStrongConnections() {
 	}
 }
 
-// Generate Top Five Strong Connections
+// Generate Top Five Strong Connections method
 func (graph *DirGraph) showTopFiveStrongConnections() {
 	var aMap map[int]int
 	aMap = make(map[int]int)
@@ -154,11 +154,11 @@ func (graph *DirGraph) showTopFiveStrongConnections() {
 	}
 
 	var id int
-  var j int
+	var j int
 	j = 0
 	for id, _ = range aMap {
 		fmt.Print(id, " ")
-		j = j +1
+		j = j + 1
 		if j > 4 {
 			break
 		}
@@ -166,6 +166,7 @@ func (graph *DirGraph) showTopFiveStrongConnections() {
 	fmt.Println()
 }
 
+// main method
 func main() {
 	var graph *DirGraph
 	graph = CreateGraph()
