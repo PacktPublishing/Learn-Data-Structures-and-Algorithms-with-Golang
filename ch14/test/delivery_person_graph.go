@@ -2,11 +2,12 @@
 // in Go Data Structures and algorithms book
 package main
 
-// importing math package
+// importing math,json, rand and os packages
 
-import (
+/*import (
 	"math"
 )
+*/
 
 type Label int
 type Category int
@@ -27,10 +28,9 @@ type GraphEdge struct {
 	EdgeLength float64
 }
 
-//DeliveryPersonRouteGraph type
+
 type DeliveryPersonRouteGraph []GraphEdge
 
-// NewDeliveryPersonRouteGraph method
 func NewDeliveryPersonRouteGraph() DeliveryPersonRouteGraph {
 
   var routeGraph DeliveryPersonRouteGraph
@@ -53,6 +53,7 @@ func (graph DeliveryPersonRouteGraph) Less(i, j int) bool {
 }
 
 // GetDistance method
-func GetDistance(u GraphNode, v GraphNode) float64 {
+/*func GetDistance(u GraphNode, v GraphNode) float64 {
 	return math.Sqrt(math.Pow(float64(u.X-v.X), 2) + math.Pow(float64(u.Y-v.Y), 2))
 }
+*/
