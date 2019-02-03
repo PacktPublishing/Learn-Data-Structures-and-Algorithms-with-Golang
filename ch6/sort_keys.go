@@ -8,11 +8,11 @@ import (
 	"sort"
 )
 
-// A couple of type definitions to make the units clear.
+
 type Mass float64
 type Miles float64
 
-// A Thing defines the properties of a  object.
+// Thing class
 type Thing struct {
 	name          string
 	mass          Mass
@@ -21,10 +21,10 @@ type Thing struct {
 	freezingpoint int
 }
 
-// By is the type of a "less" function that defines the ordering of its Thing arguments.
+// ByFactor Type
 type ByFactor func(Thing1 *Thing, Thing2 *Thing) bool
 
-// Sort is a method on the function type, By, that sorts the argument slice according to the function.
+// Sort method
 func (byFactor ByFactor) Sort(Things []Thing) {
 	var sortedThings *ThingSorter
 	sortedThings = &ThingSorter{
@@ -34,28 +34,28 @@ func (byFactor ByFactor) Sort(Things []Thing) {
 	sort.Sort(sortedThings)
 }
 
-// ThingSorter joins a By function and a slice of Things to be sorted.
+// ThingSorter class
 type ThingSorter struct {
 	Things   []Thing
 	byFactor func(Thing1 *Thing, Thing2 *Thing) bool // Closure used in the Less method.
 }
 
-// Len is part of sort.Interface.
+// Len method
 func (ThingSorter *ThingSorter) Len() int {
 	return len(ThingSorter.Things)
 }
 
-// Swap is part of sort.Interface.
+// Swap method
 func (ThingSorter *ThingSorter) Swap(i int, j int) {
 	ThingSorter.Things[i], ThingSorter.Things[j] = ThingSorter.Things[j], ThingSorter.Things[i]
 }
 
-// Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
+// Less method
 func (ThingSorter *ThingSorter) Less(i int, j int) bool {
 	return ThingSorter.byFactor(&ThingSorter.Things[i], &ThingSorter.Things[j])
 }
 
-// SortKeys demonstrates a technique for sorting a struct type using programmable sort criteria.
+
 func main() {
 	var Things = []Thing{
 		{"IronRod", 0.055, 0.4, 3000, -180},
@@ -63,7 +63,7 @@ func main() {
 		{"CopperBowl", 1.0, 1.0, 60, -30},
 		{"BrassPot", 0.107, 1.5, 10000, -456},
 	}
-	// Closures that order the Thing structure.
+
 
 	var name func(*Thing, *Thing) bool
 	name = func(Thing1 *Thing, Thing2 *Thing) bool {
@@ -82,7 +82,7 @@ func main() {
 		return distance(p2, p1)
 	}
 
-	// Sort the Things by the various criteria.
+
 	ByFactor(name).Sort(Things)
 	fmt.Println("By name:", Things)
 

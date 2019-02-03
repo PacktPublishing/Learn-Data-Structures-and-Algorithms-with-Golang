@@ -24,32 +24,31 @@ type multiSorter struct {
 	lessFunction []lessFunc
 }
 
-// Sort sorts the argument slice according to the less functions passed to OrderedBy.
+// Sort Method
 func (multiSorter *multiSorter) Sort(Commits []Commit) {
 	multiSorter.Commits = Commits
 	sort.Sort(multiSorter)
 }
 
-// OrderedBy returns a Sorter that sorts using the less functions, in order.
-// Call its Sort method to sort the data.
+// OrderedBy Method
 func OrderedBy(lessFunction ...lessFunc) *multiSorter {
 	return &multiSorter{
 		lessFunction: lessFunction,
 	}
 }
 
-// Len is part of sort.Interface.
+// Len Method
 func (multiSorter *multiSorter) Len() int {
 	return len(multiSorter.Commits)
 }
 
-// Swap is part of sort.Interface.
+// Swap method
 func (multiSorter *multiSorter) Swap(i int, j int) {
 	multiSorter.Commits[i] = multiSorter.Commits[j]
 	multiSorter.Commits[j] = multiSorter.Commits[i]
 }
 
-// Less is part of sort.Interface.
+// Less method
 
 func (multiSorter *multiSorter) Less(i int, j int) bool {
 
@@ -57,22 +56,17 @@ func (multiSorter *multiSorter) Less(i int, j int) bool {
 	var q *Commit
 	p = &multiSorter.Commits[i]
 	q = &multiSorter.Commits[j]
-	// Try all but the last comparison.
+
 	var k int
 	for k = 0; k < len(multiSorter.lessFunction)-1; k++ {
 		less := multiSorter.lessFunction[k]
 		switch {
 		case less(p, q):
-			// p < q, so we have a decision.
 			return true
 		case less(q, p):
-			// p > q, so we have a decision.
 			return false
 		}
-		// p == q; try the next comparison.
 	}
-	// All comparisons to here said "equal", so just return whatever
-	// the final comparison reports.
 	return multiSorter.lessFunction[k](p, q)
 }
 
