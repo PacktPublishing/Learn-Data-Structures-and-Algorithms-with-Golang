@@ -25,7 +25,6 @@ func (UnOrderedList *UnOrderedList) AddToHead(property int) {
 	node.nextNode = nil
 
 	if UnOrderedList.headNode != nil {
-		//fmt.Println(node.property)
 		node.nextNode = UnOrderedList.headNode
 	}
 

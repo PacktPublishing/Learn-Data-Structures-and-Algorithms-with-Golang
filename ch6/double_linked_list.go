@@ -10,7 +10,6 @@ import (
 
 // main method
 func main() {
-	// Create a new list and put some numbers in it.
 	var linkedList *list.List
 	linkedList = list.New()
 	var element *list.Element

@@ -18,7 +18,7 @@ type Commit struct {
 
 type lessFunc func(p1 *Commit, p2 *Commit) bool
 
-// multiSorter implements the Sort interface, sorting the Commits within.
+// multiSorter class
 type multiSorter struct {
 	Commits      []Commit
 	lessFunction []lessFunc

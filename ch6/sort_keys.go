@@ -29,7 +29,7 @@ func (byFactor ByFactor) Sort(Things []Thing) {
 	var sortedThings *ThingSorter
 	sortedThings = &ThingSorter{
 		Things:   Things,
-		byFactor: byFactor, // The Sort method's receiver is the function (closure) that defines the sort order.
+		byFactor: byFactor,
 	}
 	sort.Sort(sortedThings)
 }
@@ -37,7 +37,7 @@ func (byFactor ByFactor) Sort(Things []Thing) {
 // ThingSorter class
 type ThingSorter struct {
 	Things   []Thing
-	byFactor func(Thing1 *Thing, Thing2 *Thing) bool // Closure used in the Less method.
+	byFactor func(Thing1 *Thing, Thing2 *Thing) bool
 }
 
 // Len method
@@ -55,7 +55,7 @@ func (ThingSorter *ThingSorter) Less(i int, j int) bool {
 	return ThingSorter.byFactor(&ThingSorter.Things[i], &ThingSorter.Things[j])
 }
 
-
+// main method
 func main() {
 	var Things = []Thing{
 		{"IronRod", 0.055, 0.4, 3000, -180},

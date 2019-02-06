@@ -21,14 +21,14 @@ func (employee Employee) ToString() string {
 	return fmt.Sprintf("%s: %d,%s,%d", employee.Name, employee.Age, employee.ID, employee.SSN)
 }
 
-// SortByAge implements sort.Interface for []Employee based on
-// the Age field.
+// SortByAge type
 type SortByAge []Employee
 
 func (sortIntf SortByAge) Len() int               { return len(sortIntf) }
 func (sortIntf SortByAge) Swap(i int, j int)      { sortIntf[i], sortIntf[j] = sortIntf[j], sortIntf[i] }
 func (sortIntf SortByAge) Less(i int, j int) bool { return sortIntf[i].Age < sortIntf[j].Age }
 
+// main method
 func main() {
 	var employees = []Employee{
 		{"Graham", "231", 235643, 31},
