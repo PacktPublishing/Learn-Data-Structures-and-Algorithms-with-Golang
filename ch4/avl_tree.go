@@ -8,25 +8,25 @@ import (
 	"fmt"
 )
 
-// Key interface
-type Key interface {
-	LessThan(Key) bool
-	EqualTo(Key) bool
+// KeyValue type
+type KeyValue interface {
+	LessThan(KeyValue) bool
+	EqualTo(KeyValue) bool
 }
 
 // TreeNode class
 type TreeNode struct {
-	KeyValue     Key
+	KeyValue     KeyValue
 	BalanceValue int
 	LinkedNodes  [2]*TreeNode
 }
 
-//opposite to nodeValue
+//opposite method
 func opposite(nodeValue int) int {
 	return 1 - nodeValue
 }
 
-// single rotation
+// single rotation method
 func singleRotation(rootNode *TreeNode, nodeValue int) *TreeNode {
 
 	var saveNode *TreeNode
@@ -36,7 +36,7 @@ func singleRotation(rootNode *TreeNode, nodeValue int) *TreeNode {
 	return saveNode
 }
 
-// double rotation
+// double rotation method
 func doubleRotation(rootNode *TreeNode, nodeValue int) *TreeNode {
 
 	var saveNode *TreeNode
@@ -52,7 +52,7 @@ func doubleRotation(rootNode *TreeNode, nodeValue int) *TreeNode {
 	return saveNode
 }
 
-// adjust balance factors after double rotation
+// adjust balance method
 func adjustBalance(rootNode *TreeNode, nodeValue int, balanceValue int) {
 
 	var node *TreeNode
@@ -73,7 +73,7 @@ func adjustBalance(rootNode *TreeNode, nodeValue int, balanceValue int) {
 	oppNode.BalanceValue = 0
 }
 
-// balance factor of the tree is changed by single and double rotation
+// balanceTree method
 func BalanceTree(rootNode *TreeNode, nodeValue int) *TreeNode {
 	var node *TreeNode
 	node = rootNode.LinkedNodes[nodeValue]
@@ -88,8 +88,8 @@ func BalanceTree(rootNode *TreeNode, nodeValue int) *TreeNode {
 	return doubleRotation(rootNode, opposite(nodeValue))
 }
 
-//inserts RootNode with key value
-func insertRNode(rootNode *TreeNode, key Key) (*TreeNode, bool) {
+//insertRNode method
+func insertRNode(rootNode *TreeNode, key KeyValue) (*TreeNode, bool) {
 	if rootNode == nil {
 		return &TreeNode{KeyValue: key}, false
 	}
@@ -113,16 +113,17 @@ func insertRNode(rootNode *TreeNode, key Key) (*TreeNode, bool) {
 	return BalanceTree(rootNode, dir), true
 }
 
-// Insert a node into the AVL tree.
-func InsertNode(treeNode **TreeNode, key Key) {
+// InsertNode method
+func InsertNode(treeNode **TreeNode, key KeyValue) {
 	*treeNode, _ = insertRNode(*treeNode, key)
 }
 
-// RemoveNode removes an element from an AVL tree.
-func RemoveNode(treeNode **TreeNode, key Key) {
+// RemoveNode method
+func RemoveNode(treeNode **TreeNode, key KeyValue) {
 	*treeNode, _ = removeRNode(*treeNode, key)
 }
 
+// removeBalance method
 func removeBalance(rootNode *TreeNode, nodeValue int) (*TreeNode, bool) {
 	var node *TreeNode
 	node = rootNode.LinkedNodes[opposite(nodeValue)]
@@ -141,8 +142,8 @@ func removeBalance(rootNode *TreeNode, nodeValue int) (*TreeNode, bool) {
 	node.BalanceValue = balance
 	return singleRotation(rootNode, nodeValue), true
 }
-
-func removeRNode(rootNode *TreeNode, key Key) (*TreeNode, bool) {
+// removeRNode method
+func removeRNode(rootNode *TreeNode, key KeyValue) (*TreeNode, bool) {
 	if rootNode == nil {
 		return nil, false
 	}
@@ -183,30 +184,30 @@ func removeRNode(rootNode *TreeNode, key Key) (*TreeNode, bool) {
 
 type integerKey int
 
-func (k integerKey) LessThan(k1 Key) bool { return k < k1.(integerKey) }
-func (k integerKey) EqualTo(k1 Key) bool  { return k == k1.(integerKey) }
+func (k integerKey) LessThan(k1 KeyValue) bool { return k < k1.(integerKey) }
+func (k integerKey) EqualTo(k1 KeyValue) bool  { return k == k1.(integerKey) }
 
 //main method
 func main() {
-	var tree *TreeNode
-	fmt.Println("Empty Tree:")
-	var avl []byte
-	avl, _ = json.MarshalIndent(tree, "", "   ")
-	fmt.Println(string(avl))
+	var treeNode *TreeNode
+	fmt.Println("Tree is empty")
+	var avlTree []byte
+	avlTree, _ = json.MarshalIndent(treeNode, "", "   ")
+	fmt.Println(string(avlTree))
 
-	fmt.Println("\nInsert Tree:")
-	InsertNode(&tree, integerKey(5))
-	InsertNode(&tree, integerKey(3))
-	InsertNode(&tree, integerKey(8))
-	InsertNode(&tree, integerKey(7))
-	InsertNode(&tree, integerKey(6))
-	InsertNode(&tree, integerKey(10))
-	avl, _ = json.MarshalIndent(tree, "", "   ")
-	fmt.Println(string(avl))
+	fmt.Println("\n Add Tree")
+	InsertNode(&treeNode, integerKey(5))
+	InsertNode(&treeNode, integerKey(3))
+	InsertNode(&treeNode, integerKey(8))
+	InsertNode(&treeNode, integerKey(7))
+	InsertNode(&treeNode, integerKey(6))
+	InsertNode(&treeNode, integerKey(10))
+	avlTree, _ = json.MarshalIndent(treeNode, "", "   ")
+	fmt.Println(string(avlTree))
 
-	fmt.Println("\nRemove Tree:")
-	RemoveNode(&tree, integerKey(3))
-	RemoveNode(&tree, integerKey(7))
-	avl, _ = json.MarshalIndent(tree, "", "   ")
-	fmt.Println(string(avl))
+	fmt.Println("\n Delete Tree")
+	RemoveNode(&treeNode, integerKey(3))
+	RemoveNode(&treeNode, integerKey(7))
+	avlTree, _ = json.MarshalIndent(treeNode, "", "   ")
+	fmt.Println(string(avlTree))
 }
