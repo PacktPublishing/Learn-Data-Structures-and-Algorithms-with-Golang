@@ -28,14 +28,12 @@ func main() {
 	})
 	fmt.Println()
 
-	// reverse of the circular list
 	for i = 0; i < circular_list.Len(); i++ {
 		fmt.Print(circular_list.Value, ",")
 		circular_list = circular_list.Prev()
 	}
 	fmt.Println()
 
-	// move two elements forward in the circular list
 	circular_list = circular_list.Move(2)
 	circular_list.Do(func(element interface{}) {
 		fmt.Print(element, ",")

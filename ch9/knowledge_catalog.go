@@ -63,7 +63,6 @@ func (knowledgeGraph *KnowledgeGraph) PrintLinks() {
 
 	var node Class
 	for node = range knowledgeGraph.Links[car] {
-		// Edge exists from u to v.
 		fmt.Printf("Link: %s -> %s\n", car.Name, node.Name)
 	}
 
@@ -72,7 +71,6 @@ func (knowledgeGraph *KnowledgeGraph) PrintLinks() {
 	for car, m = range knowledgeGraph.Links {
 		var vertex Class
 		for vertex = range m {
-			// Edge exists from u to v.
 			fmt.Printf("Link: %s -> %s\n", car.Name, vertex.Name)
 		}
 	}

@@ -26,7 +26,6 @@ func ThueMorseSequence(buffer *bytes.Buffer) {
 // main method
 func main() {
 	var buffer bytes.Buffer
-	// initial sequence member is "0"
 	buffer.WriteByte('0')
 	fmt.Println(buffer.String())
 	var i int

@@ -8,7 +8,7 @@ import (
 	"sync"
 )
 
-// TreeNode a single node that composes the tree
+// TreeNode class
 type TreeNode struct {
 	key       int
 	value     int
@@ -16,13 +16,13 @@ type TreeNode struct {
 	rightNode *TreeNode //right
 }
 
-// BinarySearchTree the binary search tree
+// BinarySearchTree class
 type BinarySearchTree struct {
 	rootNode *TreeNode
 	lock     sync.RWMutex
 }
 
-// InsertElement inserts the element with key and value in a binary search  tree
+// InsertElement method
 func (tree *BinarySearchTree) InsertElement(key int, value int) {
 	tree.lock.Lock()
 	defer tree.lock.Unlock()
@@ -36,7 +36,7 @@ func (tree *BinarySearchTree) InsertElement(key int, value int) {
 	}
 }
 
-// internal function insertTreeNode to find the right place for a tree node in a binary search tree
+//  insertTreeNode method
 func insertTreeNode(rootNode *TreeNode, newTreeNode *TreeNode) {
 	if newTreeNode.key < rootNode.key {
 		if rootNode.leftNode == nil {
@@ -53,14 +53,14 @@ func insertTreeNode(rootNode *TreeNode, newTreeNode *TreeNode) {
 	}
 }
 
-// InOrderTraverseTree visits all Tree nodes with in-order traversing
+// InOrderTraverseTree method
 func (tree *BinarySearchTree) InOrderTraverseTree(function func(int)) {
 	tree.lock.RLock()
 	defer tree.lock.RUnlock()
 	inOrderTraverseTree(tree.rootNode, function)
 }
 
-// internal recursive function inOrderTraverseTree to traverse in order
+//  inOrderTraverseTree method
 func inOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	if treeNode != nil {
 		inOrderTraverseTree(treeNode.leftNode, function)
@@ -69,14 +69,14 @@ func inOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	}
 }
 
-// PreOrderTraverse visits all Tree Nodes with pre-order traversing
+// PreOrderTraverse method
 func (tree *BinarySearchTree) PreOrderTraverseTree(function func(int)) {
 	tree.lock.Lock()
 	defer tree.lock.Unlock()
 	preOrderTraverseTree(tree.rootNode, function)
 }
 
-// internal recursive function preOrderTraverseTree to traverse pre order
+//  preOrderTraverseTree method
 func preOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	if treeNode != nil {
 		function(treeNode.value)
@@ -85,14 +85,14 @@ func preOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	}
 }
 
-// PostOrderTraverseTree visits all nodes with post-order traversing
+// PostOrderTraverseTree method
 func (tree *BinarySearchTree) PostOrderTraverseTree(function func(int)) {
 	tree.lock.Lock()
 	defer tree.lock.Unlock()
 	postOrderTraverseTree(tree.rootNode, function)
 }
 
-// internal recursive function postOrderTraverseTree to traverse post order
+// postOrderTraverseTree method
 func postOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	if treeNode != nil {
 		postOrderTraverseTree(treeNode.leftNode, function)
@@ -101,7 +101,7 @@ func postOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	}
 }
 
-// MinNode returns the vale of the Node  with min value stored in the tree
+// MinNode method
 func (tree *BinarySearchTree) MinNode() *int {
 	tree.lock.RLock()
 	defer tree.lock.RUnlock()
@@ -109,7 +109,6 @@ func (tree *BinarySearchTree) MinNode() *int {
 	var treeNode *TreeNode
 	treeNode = tree.rootNode
 	if treeNode == nil {
-		//nil instead of 0
 		return (*int)(nil)
 	}
 	for {
@@ -120,14 +119,13 @@ func (tree *BinarySearchTree) MinNode() *int {
 	}
 }
 
-// MaxNode returns the value of the Node with max value stored in the tree
+// MaxNode method
 func (tree *BinarySearchTree) MaxNode() *int {
 	tree.lock.RLock()
 	defer tree.lock.RUnlock()
 	var treeNode *TreeNode
 	treeNode = tree.rootNode
 	if treeNode == nil {
-		//nil instead of 0
 		return (*int)(nil)
 	}
 	for {
@@ -138,14 +136,14 @@ func (tree *BinarySearchTree) MaxNode() *int {
 	}
 }
 
-// SearchNode returns true if the key exists in the tree
+// SearchNode method
 func (tree *BinarySearchTree) SearchNode(key int) bool {
 	tree.lock.RLock()
 	defer tree.lock.RUnlock()
 	return searchNode(tree.rootNode, key)
 }
 
-// internal recursive function searchNode to search a Node with key in the tree
+//  searchNode method
 func searchNode(treeNode *TreeNode, key int) bool {
 	if treeNode == nil {
 		return false
@@ -159,14 +157,14 @@ func searchNode(treeNode *TreeNode, key int) bool {
 	return true
 }
 
-// RemoveNode removes the Item with key `key` from the tree
+// RemoveNode method
 func (tree *BinarySearchTree) RemoveNode(key int) {
 	tree.lock.Lock()
 	defer tree.lock.Unlock()
 	removeNode(tree.rootNode, key)
 }
 
-// internal recursive function removeNode to remove an element with key
+//  removeNode method
 func removeNode(treeNode *TreeNode, key int) *TreeNode {
 	if treeNode == nil {
 		return nil
@@ -179,7 +177,6 @@ func removeNode(treeNode *TreeNode, key int) *TreeNode {
 		treeNode.rightNode = removeNode(treeNode.rightNode, key)
 		return treeNode
 	}
-	// key == node.key
 	if treeNode.leftNode == nil && treeNode.rightNode == nil {
 		treeNode = nil
 		return nil
@@ -195,7 +192,6 @@ func removeNode(treeNode *TreeNode, key int) *TreeNode {
 	var leftmostrightNode *TreeNode
 	leftmostrightNode = treeNode.rightNode
 	for {
-		//find smallest value on the right side
 		if leftmostrightNode != nil && leftmostrightNode.leftNode != nil {
 			leftmostrightNode = leftmostrightNode.leftNode
 		} else {
@@ -207,7 +203,7 @@ func removeNode(treeNode *TreeNode, key int) *TreeNode {
 	return treeNode
 }
 
-// String prints a visual representation of the tree
+// String method
 func (tree *BinarySearchTree) String() {
 	tree.lock.Lock()
 	defer tree.lock.Unlock()
@@ -216,7 +212,7 @@ func (tree *BinarySearchTree) String() {
 	fmt.Println("************************************************")
 }
 
-// internal recursive function to print a tree
+// stringify method
 func stringify(treeNode *TreeNode, level int) {
 	if treeNode != nil {
 		format := ""
@@ -238,14 +234,12 @@ func print(tree *BinarySearchTree) {
 		fmt.Println(" Value", tree.rootNode.value)
 		fmt.Printf("Root Tree Node")
 		printTreeNode(tree.rootNode)
-		//fmt.Printf("Tree Node Right")
-		//print(tree.rootNode.rightNode)
 	} else {
 		fmt.Printf("Nil\n")
 	}
 }
 
-//prints the treeNode
+//printTreeNode method
 func printTreeNode(treeNode *TreeNode) {
 	if treeNode != nil {
 		fmt.Println(" Value", treeNode.value)

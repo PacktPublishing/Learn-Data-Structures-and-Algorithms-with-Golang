@@ -66,7 +66,6 @@ func (mapLayout *MapLayout) PrintLinks() {
 
 	var node Place
 	for node = range mapLayout.Links[root] {
-		// Edge exists from u to v.
 		fmt.Printf("Link: %s -> %s\n", root.Name, node.Name)
 	}
 
@@ -75,7 +74,6 @@ func (mapLayout *MapLayout) PrintLinks() {
 	for root, m = range mapLayout.Links {
 		var vertex Place
 		for vertex = range m {
-			// Edge exists from u to v.
 			fmt.Printf("Link: %s -> %s\n",root.Name, vertex.Name)
 		}
 	}

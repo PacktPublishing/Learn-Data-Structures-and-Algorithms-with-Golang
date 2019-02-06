@@ -13,7 +13,7 @@ type fraction struct {
 	denominator int
 }
 
-// string method of fraction class
+// string method
 func (frac fraction) String() string {
 	return fmt.Sprintf("%d/%d", frac.numerator, frac.denominator)
 }
@@ -42,7 +42,6 @@ func main() {
 		g(l, r, num)
 		fmt.Println(r)
 	}
-	// primes
 	var primes [1001]bool
 	var p int
 	for _, p = range []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31} {
@@ -50,7 +49,6 @@ func main() {
 			primes[num] = true
 		}
 	}
-	// totients
 	var totients [1001]int
 	var i int
 	for i = range totients {
@@ -71,7 +69,6 @@ func main() {
 			}
 		}
 	}
-	// 2.3 sum totients
 	var sum int
 	for num, sum = 1, 1; num <= 1000; num++ {
 		sum += totients[num]

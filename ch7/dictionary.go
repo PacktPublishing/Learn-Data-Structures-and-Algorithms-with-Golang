@@ -11,16 +11,16 @@ import (
 // DictKey is the key of the dictionary
 type DictKey string
 
-// DictVal the value mapped to DictKey of the dictionary
+// DictVal type
 type DictVal string
 
-// Dictionary the set of elements
+// Dictionary class
 type Dictionary struct {
 	elements map[DictKey]DictVal
 	lock     sync.RWMutex
 }
 
-// Put inserts a new element to the dictionary
+// Put method
 func (dict *Dictionary) Put(key DictKey, value DictVal) {
 	dict.lock.Lock()
 	defer dict.lock.Unlock()
@@ -30,7 +30,7 @@ func (dict *Dictionary) Put(key DictKey, value DictVal) {
 	dict.elements[key] = value
 }
 
-// Remove removes a value from the dictionary, given its key
+// Remove method
 func (dict *Dictionary) Remove(key DictKey) bool {
 	dict.lock.Lock()
 	defer dict.lock.Unlock()
@@ -42,7 +42,7 @@ func (dict *Dictionary) Remove(key DictKey) bool {
 	return exists
 }
 
-// Contains returns true if the key exists in the dictionary
+// Contains method
 func (dict *Dictionary) Contains(key DictKey) bool {
 	dict.lock.RLock()
 	defer dict.lock.RUnlock()
@@ -51,28 +51,28 @@ func (dict *Dictionary) Contains(key DictKey) bool {
 	return exists
 }
 
-// Find returns the value associated with the key
+// Find method
 func (dict *Dictionary) Find(key DictKey) DictVal {
 	dict.lock.RLock()
 	defer dict.lock.RUnlock()
 	return dict.elements[key]
 }
 
-// Reset removes all the items from the dictionary
+// Reset method
 func (dict *Dictionary) Reset() {
 	dict.lock.Lock()
 	defer dict.lock.Unlock()
 	dict.elements = make(map[DictKey]DictVal)
 }
 
-// NumberOfElements returns the number of elements in the dictionary
+// NumberOfElements method
 func (dict *Dictionary) NumberOfElements() int {
 	dict.lock.RLock()
 	defer dict.lock.RUnlock()
 	return len(dict.elements)
 }
 
-// GetKeys returns a slice of all the dictionary keys present
+// GetKeys method
 func (dict *Dictionary) GetKeys() []DictKey {
 	dict.lock.RLock()
 	defer dict.lock.RUnlock()
@@ -85,7 +85,7 @@ func (dict *Dictionary) GetKeys() []DictKey {
 	return dictKeys
 }
 
-// Values returns a slice of all the values present
+// GetValues method
 func (dict *Dictionary) GetValues() []DictVal {
 	dict.lock.RLock()
 	defer dict.lock.RUnlock()

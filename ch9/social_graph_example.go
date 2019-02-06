@@ -53,13 +53,12 @@ func (socialGraph *SocialGraph) AddLink(name1 Name, name2 Name) {
 
 func (socialGraph *SocialGraph) PrintLinks() {
 	var root Name
-	root = Name("Root") // example node ID.
+	root = Name("Root")
 
 	fmt.Printf("Printing all links adjacent to %d\n", root)
 
 	var node Name
 	for node = range socialGraph.Links[root] {
-		// Edge exists from u to v.
 		fmt.Printf("Link: %d -> %d\n", root, node)
 	}
 
@@ -68,7 +67,6 @@ func (socialGraph *SocialGraph) PrintLinks() {
 	for root, m = range socialGraph.Links {
 		var vertex Name
 		for vertex = range m {
-			// Edge exists from u to v.
 			fmt.Printf("Link: %d -> %d\n",root, vertex)
 		}
 	}

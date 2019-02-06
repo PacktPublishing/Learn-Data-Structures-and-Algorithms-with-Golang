@@ -8,7 +8,7 @@ import (
   "sync"
 )
 
-//Reference Counter
+//Reference Counter Class
 type ReferenceCounter struct {
 	num     *uint32
 	pool    *sync.Pool
@@ -23,24 +23,24 @@ func newReferenceCounter() *ReferenceCounter {
 		removed: new(uint32),
 	}
 }
-// NewStack returns a new stack.
+// New method of Stack class
 func (stack *Stack) New()  {
     stack.references = make([]*ReferenceCounter,0)
 }
 
-// Stack is a basic LIFO stack that resizes as needed.
+// Stack class
 type Stack struct {
     references []*ReferenceCounter
     Count int
 }
 
-// Push adds a node to the stack.
+// Push method
 func (stack *Stack) Push(reference *ReferenceCounter) {
     stack.references = append(stack.references[:stack.Count], reference)
     stack.Count = stack.Count + 1
 }
 
-// Pop removes and returns a node from the stack in last to first order.
+// Pop method
 func (stack *Stack) Pop() *ReferenceCounter {
     if stack.Count == 0 {
         return nil
@@ -48,7 +48,6 @@ func (stack *Stack) Pop() *ReferenceCounter {
 
 		var length int = len(stack.references)
 		var reference *ReferenceCounter = stack.references[length -1]
-		//stack.elementCount = stack.elementCount - 1
 		if length > 1 {
 		   stack.references = stack.references[:length-1]
 

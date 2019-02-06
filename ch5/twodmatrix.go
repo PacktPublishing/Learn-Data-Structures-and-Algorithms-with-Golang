@@ -75,7 +75,7 @@ func determinant(matrix1 [2][2]int) float64 {
 
 	return det
 }
-
+// inverse method
 func inverse(matrix [2][2]int) [][]float64 {
 
 	var det float64

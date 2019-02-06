@@ -26,7 +26,7 @@ type Column struct {
 	Value string
 }
 
-//printTable prints the rows and columns of a table
+//printTable method
 func printTable(table Table) {
 
 	var rows []Row = table.Rows

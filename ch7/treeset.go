@@ -2,12 +2,12 @@
 // in Go Data Structures and algorithms book
 package main
 
-// TreeSet holds elements in a binary search tree
+// TreeSet type
 type TreeSet struct {
 	bst *BinarySearchTree
 }
 
-// InsertTreeNode inserts the treeNodes (one or more) to the treeset.
+// InsertTreeNode method
 func (treeset *TreeSet) InsertTreeNode(treeNodes ...TreeNode) {
 	var treeNode TreeNode
 	for _, treeNode = range treeNodes {
@@ -15,7 +15,7 @@ func (treeset *TreeSet) InsertTreeNode(treeNodes ...TreeNode) {
 	}
 }
 
-// Delete deletes the treeNodes (one or more) from the treeset.
+// Delete method
 func (treeset *TreeSet) Delete(treeNodes ...TreeNode) {
 	var treeNode TreeNode
 	for _, treeNode = range treeNodes {
@@ -23,7 +23,7 @@ func (treeset *TreeSet) Delete(treeNodes ...TreeNode) {
 	}
 }
 
-// Search searches treeNodes (one or more) are present in the treeset.
+// Search method
 func (treeset *TreeSet) Search(treeNodes ...TreeNode) bool {
 	var treeNode TreeNode
 	var exists bool
@@ -35,7 +35,7 @@ func (treeset *TreeSet) Search(treeNodes ...TreeNode) bool {
 	return true
 }
 
-// String returns a string representation of container
+// String method
 func (treeset *TreeSet) String() {
 
 	treeset.bst.String()
@@ -47,7 +47,6 @@ func main() {
 	var treeset *TreeSet = &TreeSet{}
 
 	treeset.bst = &BinarySearchTree{}
-	//tree.String()
 
 	var node1 TreeNode = TreeNode{8, 8, nil, nil}
 	var node2 TreeNode = TreeNode{3, 3, nil, nil}

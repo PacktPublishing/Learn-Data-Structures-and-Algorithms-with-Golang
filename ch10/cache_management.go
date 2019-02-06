@@ -70,7 +70,6 @@ func main() {
 	cache = NewCache()
 
 	cache.SetValue("name", "john smith", 200000000)
-	//fmt.Println(storage)
 	var name string
 	name = cache.GetObject("name")
 	fmt.Println(name)
