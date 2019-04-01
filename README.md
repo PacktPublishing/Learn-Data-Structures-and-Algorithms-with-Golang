@@ -57,8 +57,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 * Hands-On Dependency Injection in Go [[Packt]](https://www.packtpub.com/application-development/hands-dependency-injection-go?utm_source=github&utm_medium=repository&utm_campaign=9781789132762) [[Amazon]](https://www.amazon.com/dp/1789132762)
 
 ## Get to Know the Author
-**Bhagvan Kommadi**
-, the founder of Quantica Computacao and Architect Corner, has around 18 years' experience in the industry, ranging from large-scale enterprise development to incubating software product startups. He has a master's degree in Industrial Systems Engineering from the Georgia Institute of Technology (1997) and a bachelor's degree in Aerospace Engineering from the IIT Madras (1993). He is a member of the IFX forum and an individual member of Oracle JCP.
+**Bhagvan Kommadi**, the founder of Quantica Computacao and Architect Corner, has around 18 years' experience in the industry, ranging from large-scale enterprise development to incubating software product startups. He has a master's degree in Industrial Systems Engineering from the Georgia Institute of Technology (1997) and a bachelor's degree in Aerospace Engineering from the IIT Madras (1993). He is a member of the IFX forum and an individual member of Oracle JCP.
 He has developed Go-based blockchain solutions in the retail, education, banking, and financial service sectors. He has experience of building high-transactional applications using Java, Python, Go, Ruby, and JavaScript frameworks.
 
 ## Other books by the authors
