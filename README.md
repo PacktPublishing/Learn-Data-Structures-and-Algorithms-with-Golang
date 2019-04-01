@@ -4,7 +4,7 @@
 
 This is the code repository for [Learn Data Structures and Algorithms with Golang](https://www.packtpub.com/application-development/learn-data-structures-and-algorithms-golang?utm_source=github&utm_medium=repository&utm_campaign=9781789618501), published by Packt.
 
-**Level up your Go programming skills to develop faster and more efficient code	**
+**Level up your Go programming skills to develop faster and more efficient code**
 
 ## What is this book about?
 Golang is one of the fastest growing programming languages in the software industry. Its speed, simplicity, and reliability make it the perfect choice for building robust applications. This brings the need to have a solid foundation in data structures and algorithms with Go so as to build scalable applications. Complete with hands-on tutorials, this book will guide you in using the best data structures and algorithms for problem solving.
