@@ -58,7 +58,7 @@ func adjustBalance(rootNode *TreeNode, nodeValue int, balanceValue int) {
 	var node *TreeNode
 	node = rootNode.LinkedNodes[nodeValue]
 	var oppNode *TreeNode
-	oppNode = node.LinkedNodes[opposite(balanceValue)]
+	oppNode = node.LinkedNodes[opposite(nodeValue)]
 	switch oppNode.BalanceValue {
 	case 0:
 		rootNode.BalanceValue = 0
