@@ -34,6 +34,7 @@ func GetConnection() (database *sql.DB) {
 func GetCustomerById(customerId int) Customer {
 	var database *sql.DB
 	database = GetConnection()
+	defer database.Close()
 
 	var error error
 	var rows *sql.Rows
@@ -57,13 +58,13 @@ func GetCustomerById(customerId int) Customer {
 		customer.CustomerName = customerName
 		customer.SSN = SSN
 	}
-	defer database.Close()
 	return customer
 }
 
 func GetCustomers() []Customer {
 	var database *sql.DB
 	database = GetConnection()
+	defer database.Close()
 
 	var error error
 	var rows *sql.Rows
@@ -90,7 +91,6 @@ func GetCustomers() []Customer {
 		customers = append(customers, customer)
 	}
 
-	defer database.Close()
 
 	return customers
 }
@@ -98,6 +98,7 @@ func GetCustomers() []Customer {
 func InsertCustomer(customer Customer) {
 	var database *sql.DB
 	database = GetConnection()
+	defer database.Close()
 
 	var error error
 	var insert *sql.Stmt
@@ -108,7 +109,6 @@ func InsertCustomer(customer Customer) {
 	insert.Exec(customer.CustomerName, customer.SSN)
 	//log.Println("INSERT: Customer Name: " + customer.name + " | SSN: " + customer.ssn)
 
-	defer database.Close()
 
 	//return Customer{}
 }
@@ -116,6 +116,7 @@ func InsertCustomer(customer Customer) {
 func UpdateCustomer(customer Customer) {
 	var database *sql.DB
 	database = GetConnection()
+	defer database.Close()
 
 	var error error
 	var update *sql.Stmt
@@ -126,13 +127,13 @@ func UpdateCustomer(customer Customer) {
 	update.Exec(customer.CustomerName, customer.SSN, customer.CustomerId)
 	//log.Println("INSERT: Customer Name: " + customer.name + " | SSN: " + customer.ssn)
 
-	defer database.Close()
 
 	//return Customer{}
 }
 func DeleteCustomer(customer Customer) {
 	var database *sql.DB
 	database = GetConnection()
+	defer database.Close()
 
 	var error error
 	var delete *sql.Stmt
@@ -143,7 +144,6 @@ func DeleteCustomer(customer Customer) {
 	delete.Exec(customer.CustomerId)
 	//log.Println("INSERT: Customer Name: " + customer.name + " | SSN: " + customer.ssn)
 
-	defer database.Close()
 
 	//return Customer{}
 }
