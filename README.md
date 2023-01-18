@@ -3,7 +3,7 @@
 
 # Learn Data Structures and Algorithms with Golang
 
-<a href="https://www.packtpub.com/application-development/learn-data-structures-and-algorithms-golang?utm_source=github&utm_medium=repository&utm_campaign=9781789618501 "><img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/9781789618501.png" alt="Learn Data Structures and Algorithms with Golang" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/application-development/learn-data-structures-and-algorithms-golang?utm_source=github&utm_medium=repository&utm_campaign=9781789618501 "><img src="https://static.packt-cdn.com/products/9781789618501/cover/smaller" alt="Learn Data Structures and Algorithms with Golang" height="256px" align="right"></a>
 
 This is the code repository for [Learn Data Structures and Algorithms with Golang](https://www.packtpub.com/application-development/learn-data-structures-and-algorithms-golang?utm_source=github&utm_medium=repository&utm_campaign=9781789618501), published by Packt.
 
