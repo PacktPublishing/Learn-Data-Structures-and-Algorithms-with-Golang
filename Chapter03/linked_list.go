@@ -87,6 +87,9 @@ func (linkedList *LinkedList) AddToEnd(property int) {
 
 	if lastNode != nil {
 		lastNode.nextNode = node
+	} else {
+		// List is empty
+		linkedList.headNode = node	
 	}
 
 }
